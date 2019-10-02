@@ -1,0 +1,4 @@
+*.tgz
+data/
+log/
+mongodb/
