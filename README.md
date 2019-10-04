@@ -2,7 +2,7 @@
 Run a MongoDB replica set for learning and development, using just a single command.
 
 ### Prerequisites
-Ubuntu 18.04 is required. A copy of MongoDB is *not* required as it will be downloaded automatically. No dependencies are needed as only bash shell scripts are used.
+Ubuntu 18.04 is required. A copy of MongoDB is *not* required as it will be downloaded automatically. There are no dependencies as only bash shell scripts are used.
 
 ### Installing
 To clone a local copy of this project:
