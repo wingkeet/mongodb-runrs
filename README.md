@@ -1,5 +1,5 @@
 # mongodb-runrs
-Run a MongoDB replica set for learning and development, using just a single command.
+Run a MongoDB replica set for learning and development, using just one command.
 
 ### Introduction
 Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made. With mongodb-runrs, you can now invoke a single command to set up a 3-node replica set in less than 60 seconds. The resultant replica set is designed such that it doesn't interfere with any existing mongod processes you might have. A copy of MongoDB is *not* required as it will be downloaded automatically. There are no dependencies as only bash shell scripts are used.
@@ -15,7 +15,7 @@ git clone https://github.com/wingkeet/mongodb-runrs.git
 ```
 
 ### Getting Started
-There are 3 bash shell scripts: `runrs.sh`, `mongoshell.sh` and `shutdown.sh`. To run a 3-node replica set, consisting of a primary node and two secondary nodes:
+There are 3 bash shell scripts: `runrs.sh`, `mongoshell.sh` and `shutdown.sh`. To run a 3-node replica set consisting of a primary node and two secondary nodes:
 ```
 cd ~/mongodb-runrs
 ./runrs.sh
