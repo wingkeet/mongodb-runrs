@@ -2,7 +2,7 @@
 Run a MongoDB replica set for learning and development, using just a single command.
 
 ### Introduction
-Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made. The replica set created as a result of this project is designed such that it doesn't interfere with any existing mongod processes you might have. A copy of MongoDB is *not* required as it will be downloaded automatically. There are no dependencies as only bash shell scripts are used.
+Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made. With mongodb-runrs, you can now invoke a single command to set up a 3-node replica set in less than 60 seconds. The resultant replica set is designed such that it doesn't interfere with any existing mongod processes you might have. A copy of MongoDB is *not* required as it will be downloaded automatically. There are no dependencies as only bash shell scripts are used.
 
 ### Prerequisites
 Ubuntu 18.04 is required.
@@ -26,7 +26,7 @@ That's all!
 This bash script does the following things:
 1. Downloads and decompresses the TGZ version of the MongoDB Community Server. Currently, only MongoDB 4.2.0 is supported.
 2. Purges, then creates the 'data' and 'log' directories.
-3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is rs0.
+3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rs0`.
 4. Calls `rs.initiate(rsconf)` to initialize the replica set.
 5. Waits for the replica set to finish initializing. This step alone takes 13 seconds on my machine.
 
