@@ -27,7 +27,7 @@ This bash script does the following things:
 1. Downloads and decompresses the TGZ version of the MongoDB Community Server. Currently, only MongoDB 4.2.0 is supported.
 2. Purges, then creates the 'data' and 'log' directories.
 3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is rs0.
-4. Calls rs.initiate(conf) to initialize the replica set.
+4. Calls `rs.initiate(rsconf)` to initialize the replica set.
 5. Waits for the replica set to finish initializing. This takes several seconds.
 
 To get into the mongo shell, use one of the following commands. If no port number is provided, it defaults to 28001 (primary).
