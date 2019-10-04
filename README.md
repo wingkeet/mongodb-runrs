@@ -40,7 +40,7 @@ To shutdown the entire replica set:
 * **Leong Wing Keet** - *Initial work*
 
 ### License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ### Acknowledgments
 * The inspiration for this project came from https://www.npmjs.com/package/run-rs
