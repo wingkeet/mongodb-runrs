@@ -15,7 +15,7 @@ git clone https://github.com/wingkeet/mongodb-runrs.git
 ```
 
 ### Getting Started
-There are 3 bash shell scripts: 'runrs.sh', 'mongoshell.sh' and 'shutdown.sh'. To run a 3-node replica set, consisting of a primary node and two secondary nodes:
+There are 3 bash shell scripts: `runrs.sh`, `mongoshell.sh` and `shutdown.sh`. To run a 3-node replica set, consisting of a primary node and two secondary nodes:
 ```
 cd ~/mongodb-runrs
 ./runrs.sh
@@ -25,7 +25,7 @@ That's all!
 
 This bash script does the following things:
 1. Downloads and decompresses the TGZ version of the MongoDB Community Server. Currently, only MongoDB 4.2.0 is supported.
-2. Purges, then creates the 'data' and 'log' directories.
+2. Purges, then creates the `data` and `log` directories.
 3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rs0`.
 4. Calls `rs.initiate(rsconf)` to initialize the replica set.
 5. Waits for the replica set to finish initializing. This step alone takes 13 seconds on my machine.
