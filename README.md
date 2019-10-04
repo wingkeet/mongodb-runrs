@@ -2,21 +2,22 @@
 Run a MongoDB replica set for learning and development, using just a single command.
 
 ### Prerequisites
-Ubuntu 18.04 is required. A copy of MongoDB is *not* required as it will be downloaded automatically. There are no dependencies as only bash shell scripts are used.
+Ubuntu 18.04 is required.
+
+### Introduction
+Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made. The replica set created as a result of this project is designed such that it doesn't interfere with any existing mongod processes you might have. A copy of MongoDB is *not* required as it will be downloaded automatically. There are no dependencies as only bash shell scripts are used.
 
 ### Installing
-To clone a local copy of this project:
+You can use an ordinary user account; no root access is required. Go to your home directory and clone a local copy of this project:
 ```
+cd ~
 git clone https://github.com/wingkeet/mongodb-runrs.git
 ```
 
 ### Getting Started
-This replica set is designed such that it doesn't interfere with any existing mongod processes you might have.
-
-There are 3 bash shell scripts: runrs.sh, mongoshell.sh and shutdown.sh.
-
-To run a 3-node replica set:
+There are 3 bash shell scripts: 'runrs.sh', 'mongoshell.sh' and 'shutdown.sh'. To run a 3-node replica set, consisting of a primary node and two secondary nodes:
 ```
+cd ~/mongodb-runrs
 ./runrs.sh
 ```
 
