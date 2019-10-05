@@ -64,7 +64,7 @@ fi
 # Now we know that the replica set is not running.
 # If the 'mongod' directory exists and the --purge option is not specified, just fork the 3 mongod daemons and we're done.
 # Otherwise, set up everything from the beginning.
-if [[ -d mongodb && $purge -eq 0 ]]; then
+if [ -d mongodb ] && [ $purge -eq 0 ]; then
     fork
 else
     cleaninstall
