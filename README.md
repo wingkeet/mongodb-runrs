@@ -49,6 +49,13 @@ cd ~
 rm -rf mongodb-runrs
 ```
 
+### Additional Notes
+By default, runrs.sh tries to retain any databases found in the data directory.
+If you want to start with a clean installation, use the --purge option on the command line:
+```
+./runrs.sh --purge
+```
+
 ### Authors
 * **Leong Wing Keet** - *Initial work*
 
