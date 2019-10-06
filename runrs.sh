@@ -4,7 +4,7 @@ mydir="$(dirname $(realpath $0))"
 fresh=0
 
 # Read command line options
-TEMP=$(getopt -o "" -l purge -- "$@")
+TEMP=$(getopt -o "" -l fresh -- "$@")
 if [ $? -ne 0 ]; then
     echo "Usage: runrs.sh [--purge]"
     exit 1
