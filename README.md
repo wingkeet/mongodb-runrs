@@ -2,10 +2,12 @@
 Run a MongoDB replica set for learning and development, using just one command.
 
 ### Introduction
-Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made. With mongodb-runrs, you can now invoke a single command to set up a 3-node replica set in less than 60 seconds. The resultant replica set is designed such that it doesn't interfere with any existing mongod processes you might have. A copy of MongoDB is *not* required as it will be downloaded automatically. There are no dependencies as only bash shell scripts are used.
+Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made. With mongodb-runrs, you can now invoke a single command to set up a 3-node replica set in less than 60 seconds. The resultant replica set is designed such that it doesn't interfere with any existing mongod processes you might have.
 
 ### Prerequisites
-Ubuntu 18.04 is required.
+1. Ubuntu 18.04 is required.
+2. A copy of MongoDB is *not* required as it will be downloaded automatically.
+3. There are no dependencies as only bash shell scripts are used.
 
 ### Installing
 You can use an ordinary user account; root access is not required. Go to your home directory and clone a local copy of this repository:
