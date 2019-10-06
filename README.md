@@ -8,7 +8,7 @@ Setting up a MongoDB replica set is an involved process, requiring quite a numbe
 Ubuntu 18.04 is required.
 
 ### Installing
-You can use an ordinary user account; no root access is required. Go to your home directory and clone a local copy of this project:
+You can use an ordinary user account; no root access is required. Go to your home directory and clone a local copy of this repository:
 ```
 cd ~
 git clone https://github.com/wingkeet/mongodb-runrs.git
@@ -25,7 +25,7 @@ That's all!
 
 This bash script does the following things:
 1. Downloads and decompresses the TGZ version of the MongoDB Community Server. Currently, only MongoDB 4.2.0 is supported.
-2. Purges, then creates the `data` and `log` subdirectories.
+2. Creates the `data` and `log` subdirectories.
 3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rs0`.
 4. Calls `rs.initiate(rsconf)` to initialize the replica set.
 5. Waits for the replica set to finish initializing. This step alone takes 13 seconds on my machine.
@@ -55,11 +55,12 @@ If there is one, it prints a message and exits.
 By default, runrs.sh retains any databases found in the `data` directory.
 If you want to start with a clean installation, use the --purge option on the command line:
 ```
+./shutdown.sh
 ./runrs.sh --purge
 ```
 
 ### Authors
-* **Leong Wing Keet** - *Initial work*
+* **Steve Leong** - *Initial work*
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
