@@ -55,7 +55,7 @@ rm -rf mongodb-runrs
 Every time runrs.sh is executed, it checks to see whether there is a mongod process listening on port 28001.
 If there is one, it prints a message and exits.
 By default, runrs.sh retains any databases found in the `data` directory.
-If you want a fresh install, use the --fresh option on the command line:
+If you want a fresh install, use the `--fresh` option:
 ```
 ./shutdown.sh
 ./runrs.sh --fresh
