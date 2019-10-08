@@ -12,35 +12,35 @@ Setting up a MongoDB replica set is an involved process, requiring quite a numbe
 ### Installing
 You can use an ordinary user account; root access is not required. Go to your home directory and clone a local copy of this repository:
 ```
-cd ~
-git clone https://github.com/wingkeet/mongodb-runrs.git
+$ cd ~
+$ git clone https://github.com/wingkeet/mongodb-runrs.git
 ```
 
 ### Getting Started
 There are 3 bash shell scripts: `runrs.sh`, `mongoshell.sh` and `shutdown.sh`.
 To run a replica set consisting of a primary node and two secondary nodes:
 ```
-cd ~/mongodb-runrs
-./runrs.sh
+$ cd ~/mongodb-runrs
+$ ./runrs.sh
 ```
 
 To get into the mongo shell, use one of the following commands. If no port number is provided, it defaults to 28001 (primary).
 ```
-./mongoshell.sh
-./mongoshell.sh 28001
-./mongoshell.sh 28002
-./mongoshell.sh 28003
+$ ./mongoshell.sh
+$ ./mongoshell.sh 28001
+$ ./mongoshell.sh 28002
+$ ./mongoshell.sh 28003
 ```
 
 To shutdown the entire replica set:
 ```
-./shutdown.sh
+$ ./shutdown.sh
 ```
 
 To remove the entire project from your disk drive:
 ```
-cd ~
-rm -rf mongodb-runrs
+$ cd ~
+$ rm -rf mongodb-runrs
 ```
 
 ### Additional Notes
@@ -56,8 +56,8 @@ If there is one, it prints a message and exits.
 By default, runrs.sh retains any databases found in the `data` directory.
 If you want a fresh install, use the `--fresh` option:
 ```
-./shutdown.sh
-./runrs.sh --fresh
+$ ./shutdown.sh
+$ ./runrs.sh --fresh
 ```
 
 ### Authors
