@@ -7,7 +7,7 @@ Setting up a MongoDB replica set is an involved process, requiring quite a numbe
 ### Prerequisites
 - Ubuntu 18.04 is required.
 - A copy of MongoDB is *not* required as it will be downloaded automatically.
-- There are no dependencies as only bash shell scripts are used.
+- There are zero dependencies as only bash shell scripts are used.
 
 ### Installing
 You can use an ordinary user account; root access is not required. Go to your home directory and clone a local copy of this repository:
