@@ -52,7 +52,7 @@ The `runrs.sh` shell script does the following things:
 5. Waits for the replica set to finish initializing. This step alone takes 13 seconds on my machine.
 
 Every time runrs.sh is executed, it checks to see whether there is a mongod process listening on port 28001.
-If there is one, it prints a message and exits.
+If there is one, it prints a helpful message and exits.
 By default, runrs.sh retains any databases found in the `data` directory.
 If you want a fresh install, use the `--fresh` option:
 ```
