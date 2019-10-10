@@ -40,14 +40,16 @@ function fork() {
 }
 
 function freshinstall() {
-    rm -f mongodb-linux-x86_64-ubuntu1804-4.2.0.tgz
+    rm -f *.tgz
     rm -rf mongodb
     rm -rf data
     rm -rf log
 
+    # Download TGZ package and extract into `mongodb` directory
     wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.2.0.tgz
     tar -zxvf mongodb-linux-x86_64-ubuntu1804-4.2.0.tgz
     mv mongodb-linux-x86_64-ubuntu1804-4.2.0 mongodb
+
     mkdir -p data/28001 data/28002 data/28003
     mkdir -p log
     fork
