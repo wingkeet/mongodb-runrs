@@ -12,7 +12,7 @@ const error = rs.initiate(rsconf);
 printjson(error);
 
 // Wait until this node becomes primary
-print(`Waiting for replica set '${rsname}' to initialize...`);
+print(`Waiting for replica set '${rsname}' to be ready...`);
 while (!rs.isMaster().ismaster) {
     sleep(2000);
 }

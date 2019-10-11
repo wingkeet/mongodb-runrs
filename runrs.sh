@@ -52,8 +52,6 @@ function freshinstall() {
 
     mkdir -p data/28001 data/28002 data/28003
     mkdir -p log
-    fork
-    ./mongodb/bin/mongo --port 28001 rsinitiate.js
 }
 
 healthcheck
@@ -64,12 +62,13 @@ if [ $? -eq 0 ]; then
 fi
 
 # Now we know that the replica set is not running.
-# If the 'mongod' directory exists and the --fresh option is not specified, just fork the 3 mongod daemons and we're done.
-# Otherwise, do a fresh install.
-if [ -d mongodb ] && [ $fresh -eq 0 ]; then
-    fork
-else
+# If the `mongodb` directory is missing or the --fresh option is given, do a fresh install.
+if [ ! -d mongodb ] || [ $fresh -eq 1 ]; then
     freshinstall
 fi
+
+# Fork mongod daemons and wait for replica set to be ready
+fork
+./mongodb/bin/mongo --port 28001 rsinitiate.js
 
 replsetinfo

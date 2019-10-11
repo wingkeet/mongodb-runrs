@@ -49,7 +49,7 @@ The `runrs.sh` shell script does the following things:
 2. Creates the `data` and `log` subdirectories.
 3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rs0`.
 4. Calls `rs.initiate(rsconf)` to initialize the replica set.
-5. Waits for the replica set to finish initializing. This step alone takes 13 seconds on my machine.
+5. Waits for the replica set to be ready. This step alone takes 13 seconds on my machine.
 
 Every time runrs.sh is executed, it checks to see whether there is a mongod process listening on port 28001.
 If there is one, it prints a helpful message and exits.
