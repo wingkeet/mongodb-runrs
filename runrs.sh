@@ -40,7 +40,7 @@ function fork() {
 }
 
 function freshinstall() {
-    rm -f *.tgz
+    rm -f mongodb*.tgz
     rm -rf mongodb
     rm -rf data
     rm -rf log
