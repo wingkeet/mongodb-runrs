@@ -45,7 +45,7 @@ $ rm -rf mongodb-runrs
 
 ### Additional Notes
 The `runrs.sh` shell script does the following things:
-1. Downloads the TGZ package of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory. Currently, only MongoDB 4.2.0 is supported.
+1. Downloads the TGZ package of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory. The latest version of MongoDB is always downloaded.
 2. Creates the `data` and `log` subdirectories.
 3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rs0`.
 4. Calls `rs.initiate(rsconf)` to initialize the replica set.
