@@ -10,7 +10,7 @@ Setting up a MongoDB replica set is an involved process, requiring quite a numbe
 - There are zero dependencies as only Bash shell scripts are used.
 
 ### Installing
-You can use an ordinary user account; root access is not required. Go to your home directory and clone a local copy of this repository:
+You can use an ordinary user account; superuser privilege is not required. Go to your home directory and clone a local copy of this repository:
 ```
 $ cd ~
 $ git clone https://github.com/wingkeet/mongodb-runrs.git
