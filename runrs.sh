@@ -23,7 +23,7 @@ while true ; do
     esac
 done
 
-# Fork 3 mongod daemons without authentication and authorization enabled
+# Fork mongod daemons without authentication and authorization enabled
 function fork() {
     for port in "${mongodb_ports[@]}"; do
         ./mongodb/bin/mongod --replSet rs0 --bind_ip_all --port ${port} \
