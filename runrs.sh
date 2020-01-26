@@ -37,7 +37,6 @@ function fork() {
             echo "mongod failed with exit code $?"
             exit 2
         fi
-
     done
 }
 
