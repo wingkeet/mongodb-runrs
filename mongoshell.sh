@@ -1,7 +1,11 @@
 #!/bin/bash
+
+source mongodb.conf
+
 if [ -z $1 ]; then
-    portnum=28001
+    port=${mongodb_ports[0]}
 else
-    portnum=$1
+    port=$1
 fi
-./mongodb/bin/mongo --port $portnum
+
+./mongodb/bin/mongo --port $port

@@ -2,6 +2,8 @@
 
 mydir="$(dirname $(realpath $0))"
 fresh=0
+host="$(hostname)"
+source mongodb.conf
 
 # Read command line options
 TEMP=$(getopt -o "" -l fresh -- "$@")
@@ -21,25 +23,22 @@ while true ; do
     esac
 done
 
-function healthcheck() {
-    ./mongodb/bin/mongo --port 28001 healthcheck.js &> /dev/null
-}
-
-function replsetinfo() {
-    local host="$(hostname)"
-    echo "mongodb://${host}:28001 -> pid $(cat log/28001.pid)"
-    echo "mongodb://${host}:28002 -> pid $(cat log/28002.pid)"
-    echo "mongodb://${host}:28003 -> pid $(cat log/28003.pid)"
-}
-
-# Fork 3 mongod daemons
+# Fork 3 mongod daemons without authentication and authorization enabled
 function fork() {
-    ./mongodb/bin/mongod --replSet rs0 --bind_ip_all --port 28001 --dbpath ${mydir}/data/28001 \
-        --logpath ${mydir}/log/mongodb-28001.log --pidfilepath ${mydir}/log/28001.pid --fork
-    ./mongodb/bin/mongod --replSet rs0 --bind_ip_all --port 28002 --dbpath ${mydir}/data/28002 \
-        --logpath ${mydir}/log/mongodb-28002.log --pidfilepath ${mydir}/log/28002.pid --fork
-    ./mongodb/bin/mongod --replSet rs0 --bind_ip_all --port 28003 --dbpath ${mydir}/data/28003 \
-        --logpath ${mydir}/log/mongodb-28003.log --pidfilepath ${mydir}/log/28003.pid --fork
+    for port in "${mongodb_ports[@]}"; do
+        ./mongodb/bin/mongod --replSet rs0 --bind_ip_all --port ${port} \
+            --dbpath ${mydir}/data/${port} \
+            --logpath ${mydir}/log/mongodb-${port}.log \
+            --pidfilepath ${mydir}/log/${port}.pid \
+            --fork &> /dev/null
+        if [ $? -eq 0 ]; then
+            echo "${host}:${port} -> pid $(cat log/${port}.pid)"
+        else
+            echo "mongod failed with exit code $?"
+            exit 2
+        fi
+
+    done
 }
 
 function freshinstall() {
@@ -53,25 +52,18 @@ function freshinstall() {
     tar -zxvf mongodb-linux-x86_64-ubuntu1804-4.2.2.tgz
     mv mongodb-linux-x86_64-ubuntu1804-4.2.2 mongodb
 
-    mkdir -p data/28001 data/28002 data/28003
-    mkdir -p log
+    for port in "${mongodb_ports[@]}"; do
+        mkdir -p data/$port
+    done
+    mkdir log
 }
 
-healthcheck
-if [ $? -eq 0 ]; then
-    echo "MongoDB replica set 'rs0' is already running."
-    replsetinfo
-    exit 1
-fi
-
-# Now we know that the replica set is not running.
+# Here we assume that the replica set is not running.
 # If the `mongodb` directory is missing or the --fresh option is given, do a fresh install.
 if [ ! -d mongodb ] || [ $fresh -eq 1 ]; then
     freshinstall
 fi
 
-# Fork mongod daemons and wait for replica set to be ready
+# Fork mongod daemons and wait for the replica set to be ready
 fork
-./mongodb/bin/mongo --port 28001 rsinitiate.js
-
-replsetinfo
+./mongodb/bin/mongo --port ${mongodb_ports[0]} rsinitiate.js
