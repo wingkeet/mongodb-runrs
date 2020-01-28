@@ -2,7 +2,9 @@
 Run a MongoDB replica set for learning and development, using just one command.
 
 ### Introduction
-Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made. With mongodb-runrs, you can now invoke a single command to set up a 3-member replica set in less than 60 seconds. The resultant replica set is designed such that it doesn't interfere with any existing mongod processes you might have.
+Setting up a MongoDB replica set is an involved process, requiring quite a number of configurations to be made.
+With mongodb-runrs, you can now invoke a single command to set up a 3-member replica set in less than 60 seconds.
+The resultant replica set is designed such that it doesn't interfere with any existing mongod processes you might have.
 
 ### Prerequisites
 - Ubuntu 18.04 LTS is required.
@@ -10,7 +12,8 @@ Setting up a MongoDB replica set is an involved process, requiring quite a numbe
 - There are zero dependencies as only Bash shell scripts are used.
 
 ### Installing
-You can use an ordinary user account; superuser privilege is not required. Go to your home directory and clone a local copy of this repository:
+You can use an ordinary user account; superuser privilege is not required.
+Go to your home directory and clone a local copy of this repository:
 ```
 $ cd ~
 $ git clone https://github.com/wingkeet/mongodb-runrs.git
@@ -24,7 +27,8 @@ $ cd ~/mongodb-runrs
 $ ./runrs.sh
 ```
 
-To get into the mongo shell, use one of the following commands. If no port number is provided, it defaults to 28001 (primary).
+To get into the mongo shell, use one of the following commands.
+If no port number is provided, it defaults to 28001 (primary).
 ```
 $ ./mongoshell.sh
 $ ./mongoshell.sh 28001
@@ -45,11 +49,14 @@ $ rm -rf mongodb-runrs
 
 ### Additional Notes
 The `runrs.sh` shell script does the following things:
-1. Downloads the TGZ package of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory. The latest version of MongoDB is always downloaded.
-2. Creates the `data` and `log` subdirectories.
-3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rstest`.
-4. Calls `rs.initiate(rsconf)` to initialize the replica set.
-5. Waits for the replica set to be ready. This step alone takes 13 seconds on my machine.
+1. Reads configuration information from `mongodb.conf`.
+2. Downloads the TGZ package of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory.
+The latest version of MongoDB is always downloaded.
+3. Creates the `data` and `log` subdirectories.
+4. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries).
+The name of the replica set is `rstest`.
+5. Calls `rs.initiate(rsconf)` to initialize the replica set.
+6. Waits for the replica set to be ready. This step alone takes 13 seconds on my machine.
 
 By default, runrs.sh retains any databases found in the `data` directory.
 If you want a fresh install, use the `--fresh` option:
