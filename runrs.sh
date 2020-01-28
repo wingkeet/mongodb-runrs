@@ -35,7 +35,7 @@ function fork() {
             echo "${host}:${port} -> pid $(cat log/${port}.pid)"
         else
             echo "mongod failed with exit code $?"
-            exit 2
+            exit 3
         fi
     done
 }
@@ -48,6 +48,9 @@ function freshinstall() {
 
     # Download TGZ package and extract into `mongodb` directory
     wget $mongodb_url
+    if [ $? -ne 0 ]; then
+        exit 2
+    fi
     tar -zxvf $(basename $mongodb_url)
     mv $(basename $mongodb_url .tgz) mongodb
 
