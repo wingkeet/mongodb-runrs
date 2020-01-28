@@ -58,6 +58,8 @@ $ ./shutdown.sh
 $ ./runrs.sh --fresh
 ```
 
+You can configure your replica set by editing `mongodb.conf`.
+
 ### Authors
 * **Steve Leong** - *Initial work*
 
