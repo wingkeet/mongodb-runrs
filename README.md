@@ -47,12 +47,10 @@ $ rm -rf mongodb-runrs
 The `runrs.sh` shell script does the following things:
 1. Downloads the TGZ package of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory. The latest version of MongoDB is always downloaded.
 2. Creates the `data` and `log` subdirectories.
-3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rs0`.
+3. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries). The name of the replica set is `rstest`.
 4. Calls `rs.initiate(rsconf)` to initialize the replica set.
 5. Waits for the replica set to be ready. This step alone takes 13 seconds on my machine.
 
-Every time runrs.sh is executed, it checks to see whether there is a mongod process listening on port 28001.
-If there is one, it prints a helpful message and exits.
 By default, runrs.sh retains any databases found in the `data` directory.
 If you want a fresh install, use the `--fresh` option:
 ```
