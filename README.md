@@ -58,7 +58,7 @@ $ ./shutdown.sh
 $ ./runrs.sh --fresh
 ```
 
-You can configure your replica set by editing `mongodb.conf`.
+You can configure your replica set by editing `mongodb.conf` before doing a fresh install.
 
 ### Authors
 * **Steve Leong** - *Initial work*
