@@ -1,3 +1,8 @@
+// These variables are passed in through the mongo --eval option.
+// See mongodb.conf for the actual values.
+// const ports = [ 28001, 28002, 28003 ]
+// const rsname = 'rstest'
+
 // Call rs.initiate() only upon fresh install
 if (rs.status().ok === 0) {
     const host = hostname()
