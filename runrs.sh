@@ -26,7 +26,7 @@ done
 # Fork mongod daemons without authentication and authorization enabled
 function fork() {
     for port in "${mongodb_ports[@]}"; do
-        ./mongodb/bin/mongod --replSet rs0 --bind_ip_all --port ${port} \
+        ./mongodb/bin/mongod --replSet $mongodb_rsname --bind_ip_all --port ${port} \
             --dbpath ${mydir}/data/${port} \
             --logpath ${mydir}/log/mongodb-${port}.log \
             --pidfilepath ${mydir}/log/${port}.pid \
@@ -60,6 +60,12 @@ function freshinstall() {
     mkdir log
 }
 
+function join() {
+    local IFS="$1"
+    shift
+    echo "$*"
+}
+
 # Here we assume that the replica set is not running.
 # If the `mongodb` directory is missing or the --fresh option is given, do a fresh install.
 if [ ! -d mongodb ] || [ $fresh -eq 1 ]; then
@@ -67,5 +73,6 @@ if [ ! -d mongodb ] || [ $fresh -eq 1 ]; then
 fi
 
 # Fork mongod daemons and wait for the replica set to be ready
+mongo_vars="const ports=[ $(join , ${mongodb_ports[@]}) ]; const rsname='${mongodb_rsname}';"
 fork
-./mongodb/bin/mongo --port ${mongodb_ports[0]} rsinitiate.js
+./mongodb/bin/mongo --port ${mongodb_ports[0]} --eval "$mongo_vars" rsinitiate.js

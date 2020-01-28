@@ -1,15 +1,11 @@
-const rsname = 'rs0'
-
 // Call rs.initiate() only upon fresh install
 if (rs.status().ok === 0) {
     const host = hostname()
+    const members = ports.map(function(port, index) { return { _id: index, host: `${host}:${port}` } })
+    members[0].priority = 10
     const rsconf = {
         _id: rsname,
-        members: [
-            { _id: 0, host: `${host}:28001`, priority: 10 },
-            { _id: 1, host: `${host}:28002` },
-            { _id: 2, host: `${host}:28003` }
-        ]
+        members
     }
 
     const error = rs.initiate(rsconf)
