@@ -49,9 +49,8 @@ $ rm -rf mongodb-runrs
 
 ### Additional Notes
 The `runrs.sh` shell script does the following things:
-1. Reads configuration information from `mongodb.conf`.
+1. Reads configuration parameters from `mongodb.conf`.
 2. Downloads the TGZ package of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory.
-I will strive to update `mongodb.conf` to reflect the latest version of MongoDB.
 3. Creates the `data` and `log` subdirectories.
 4. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries).
 The name of the replica set is `rstest`.
@@ -65,7 +64,9 @@ $ ./shutdown.sh
 $ ./runrs.sh --fresh
 ```
 
-You can configure your replica set by editing `mongodb.conf` before doing a fresh install.
+Before doing a fresh install, you can configure your replica set by editing `mongodb.conf`.
+I will try my best to update it to reflect the latest version of MongoDB.
+Refer to `mongodb.conf` for details.
 
 ### Authors
 * **Steve Leong** - *Initial work*
