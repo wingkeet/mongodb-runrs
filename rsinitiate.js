@@ -7,7 +7,7 @@
 if (rs.status().ok === 0) {
     const host = hostname()
     const members = ports.map((port, index) => ({ _id: index, host: `${host}:${port}` }) )
-    members[0].priority = 10
+    members[0].priority = 10 // primary member
     const rsconf = {
         _id: rsname,
         members
