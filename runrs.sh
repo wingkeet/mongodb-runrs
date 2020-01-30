@@ -62,7 +62,7 @@ function freshinstall() {
 
 # Converts an array to a comma-separated list.
 # Example usage:
-#     array=( 28001 28002 28003 )
+#     array=(28001 28002 28003)
 #     join , "${array[@]}"
 # Outputs: 28001,28002,28003
 function join() {
