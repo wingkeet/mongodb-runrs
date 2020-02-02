@@ -13,12 +13,15 @@ if (rs.status().ok === 0) {
         members
     }
 
-    const error = rs.initiate(rsconf)
-    printjson(error)
+    const result = rs.initiate(rsconf)
+    printjson(result)
+
 }
 
 // Wait until this node becomes primary
-print(`Waiting for replica set '${rsname}' to be ready...`)
-while (!rs.isMaster().ismaster) {
-    sleep(2000)
+if (rs.status().ok === 1) {
+    print(`Waiting for replica set '${rsname}' to be ready...`)
+    while (!rs.isMaster().ismaster) {
+        sleep(2000)
+    }
 }
