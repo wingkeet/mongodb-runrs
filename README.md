@@ -53,7 +53,7 @@ The `runrs.sh` shell script does the following things:
 2. Downloads the TGZ package of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory.
 3. Creates the `data` and `log` subdirectories.
 4. Runs 3 copies of the mongod daemon using port numbers 28001 (primary), 28002 and 28003 (secondaries).
-The name of the replica set is `rstest`.
+The name of the replica set is `rstest`. All of these parameters are configurable in `mongodb.conf`.
 5. Calls `rs.initiate(rsconf)` to initialize the replica set.
 6. Waits for the replica set to be ready. This step alone takes 13 seconds on my machine.
 

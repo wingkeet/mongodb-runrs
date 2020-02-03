@@ -60,7 +60,7 @@ function freshinstall() {
     mkdir log
 }
 
-# Converts an array to a comma-separated list.
+# Convert an array to a comma-separated list.
 # Example usage:
 #     array=(28001 28002 28003)
 #     join , "${array[@]}"
