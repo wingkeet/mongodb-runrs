@@ -20,6 +20,9 @@ $ git clone https://github.com/wingkeet/mongodb-runrs.git
 ```
 
 ### Getting Started
+Review your operating system and replica set configuration in
+[`mongodb.conf`](https://github.com/wingkeet/mongodb-runrs/blob/master/mongodb.conf). Edit that file if necessary.
+
 There are 3 Bash shell scripts: `runrs.sh`, `mongoshell.sh` and `shutdown.sh`.
 To run a replica set consisting of a primary node and two secondary nodes:
 ```
