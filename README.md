@@ -11,7 +11,7 @@ The resultant replica set is designed such that it doesn't interfere with any ex
 - A copy of MongoDB is *not* required as it will be downloaded automatically.
 - There are zero dependencies as only Bash shell scripts are used.
 
-### Installing
+### Installation
 You can use an ordinary user account; superuser privilege is not required.
 Go to your home directory and clone a local copy of this repository:
 ```
