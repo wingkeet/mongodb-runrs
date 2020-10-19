@@ -15,7 +15,6 @@ if (rs.status().ok === 0) {
 
     const result = rs.initiate(rsconf)
     printjson(result)
-
 }
 
 // Wait until this node becomes primary
