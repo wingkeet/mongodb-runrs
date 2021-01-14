@@ -26,11 +26,15 @@ done
 # Fork mongod daemons without authentication and authorization enabled
 function fork() {
     for port in "${mongodb_ports[@]}"; do
-        ./mongodb/bin/mongod --replSet $mongodb_rsname --bind_ip_all --port ${port} \
+        ./mongodb/bin/mongod \
+            --replSet $mongodb_rsname \
+            --bind_ip_all \
+            --port ${port} \
             --dbpath ${mydir}/data/${port} \
             --logpath ${mydir}/log/mongodb-${port}.log \
             --pidfilepath ${mydir}/log/${port}.pid \
-            --fork &> /dev/null
+            --fork \
+            &> /dev/null
         if [ $? -eq 0 ]; then
             echo "${host}:${port} -> pid $(cat log/${port}.pid)"
         else
