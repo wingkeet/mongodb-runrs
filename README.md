@@ -50,7 +50,7 @@ $ cd ~
 $ rm -rf mongodb-runrs
 ```
 
-### Additional Notes
+### How It Works
 The `runrs.sh` shell script does the following things:
 1. Reads configuration information from `mongodb.conf`.
 2. Downloads the TGZ tarball of the MongoDB Community Server and extracts the contents into the `mongodb` subdirectory.
@@ -60,6 +60,7 @@ The name of the replica set is `rstest`. All of these parameters are configurabl
 5. Calls `rs.initiate(rsconf)` to initialize the replica set.
 6. Waits for the replica set to be ready. This step alone takes 13 seconds on my machine.
 
+### Additional Notes
 By default, runrs.sh retains any databases found in the `data` directory.
 If you want a fresh install, use the `--fresh` option:
 ```
