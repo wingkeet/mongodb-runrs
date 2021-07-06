@@ -46,9 +46,7 @@ function fork() {
 
 function freshinstall() {
     rm -f mongodb*.tgz
-    rm -rf mongodb
-    rm -rf data
-    rm -rf log
+    rm -rf mongodb data log
 
     # Download TGZ package and extract into `mongodb` directory
     wget $mongodb_url
