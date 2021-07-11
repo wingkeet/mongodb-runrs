@@ -44,7 +44,7 @@ To shutdown the entire replica set:
 $ ./shutdown.sh
 ```
 
-To remove the entire project from your disk drive:
+To remove the entire project from your disk:
 ```
 $ cd ~
 $ rm -rf mongodb-runrs
