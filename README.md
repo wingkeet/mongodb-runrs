@@ -7,7 +7,7 @@ With mongodb-runrs, you can now invoke a single command to set up an N-member re
 The replica set can be designed so that it doesn't interfere with any existing mongod processes you might have.
 
 ### Prerequisites
-- Ubuntu 16.04 LTS, 18.04 LTS or 20.04 LTS is required.
+- Ubuntu 18.04 LTS or 20.04 LTS is required.
 - A copy of MongoDB is *not* required as it will be downloaded automatically.
 - There are zero dependencies as only Bash shell scripts are used.
 
